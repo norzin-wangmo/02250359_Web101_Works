@@ -7,10 +7,24 @@
 
 <h1>🌦️ Weather App</h1>
 
+<!-- GET -->
+<h2>Get Weather</h2>
 <input type="text" id="city" placeholder="Enter city">
 <button onclick="getWeather()">Get Weather</button>
-
 <p id="result"></p>
+
+<hr>
+
+<!-- POST -->
+<h2>Save Location</h2>
+<input type="text" id="locationName" placeholder="Enter location">
+<button onclick="saveLocation()">Save</button>
+
+<hr>
+
+<!-- PUT + DELETE -->
+<h2>Saved Locations</h2>
+<ul id="locationList"></ul>
 
 <script src="script.js"></script>
 

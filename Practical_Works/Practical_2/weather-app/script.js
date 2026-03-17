@@ -1,28 +1,88 @@
-const API_KEY = "fe33e21951f4a9a3b46d736232a63946"; 
+const API_KEY = "fe33e21951f4a9a3b46d736232a63946";
 
+const BASE_URL = "https://jsonplaceholder.typicode.com/posts";
+
+let locations = [];
+
+// 🌦️ GET WEATHER
 function getWeather() {
   const city = document.getElementById("city").value.trim();
 
-  if (!city) {
-    document.getElementById("result").innerText = "⚠️ Please enter a city";
-    return;
-  }
-
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => {
-      console.log(data);
-
       if (data.cod === 200) {
         document.getElementById("result").innerText =
-          `🌡 Temperature: ${data.main.temp}°C\n🌥 Weather: ${data.weather[0].description}`;
+          `🌡 ${data.main.temp}°C | ${data.weather[0].description}`;
       } else {
-        document.getElementById("result").innerText =
-          "❌ " + data.message;
+        document.getElementById("result").innerText = "❌ " + data.message;
       }
-    })
-    .catch(error => {
-      document.getElementById("result").innerText = "❌ Error fetching data";
-      console.log(error);
     });
+}
+
+// ➕ POST
+function saveLocation() {
+  const name = document.getElementById("locationName").value;
+
+  fetch(BASE_URL, {
+    method: "POST",
+    body: JSON.stringify({ title: name }),
+    headers: {
+      "Content-type": "application/json"
+    }
+  })
+    .then(res => res.json())
+    .then(data => {
+      locations.push(data);
+      displayLocations();
+    });
+}
+
+// 📋 DISPLAY
+function displayLocations() {
+  const list = document.getElementById("locationList");
+  list.innerHTML = "";
+
+  locations.forEach((loc, index) => {
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+      ${loc.title}
+      <button onclick="editLocation(${index})">Edit</button>
+      <button onclick="deleteLocation(${index})">Delete</button>
+    `;
+
+    list.appendChild(li);
+  });
+}
+
+// ✏️ PUT
+function editLocation(index) {
+  const newName = prompt("Enter new name:");
+  if (!newName) return;
+
+  // 🔥 Update locally FIRST
+  locations[index].title = newName;
+
+  // Optional API call (just for assignment requirement)
+  fetch(`${BASE_URL}/${locations[index].id}`, {
+    method: "PUT",
+    body: JSON.stringify({ title: newName }),
+    headers: {
+      "Content-type": "application/json"
+    }
+  });
+
+  // 🔥 Refresh UI
+  displayLocations();
+}
+// ❌ DELETE
+function deleteLocation(index) {
+  locations.splice(index, 1); // remove locally
+
+  fetch(`${BASE_URL}/${locations[index]?.id}`, {
+    method: "DELETE"
+  });
+
+  displayLocations();
 }
