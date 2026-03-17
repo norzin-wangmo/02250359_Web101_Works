@@ -1,0 +1,37 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #ffe4ec; /* pink theme for you 💖 */
+}
+
+h1 {
+  color: #d63384;
+}
+
+.card {
+  background: white;
+  margin: 20px auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input {
+  padding: 8px;
+  margin: 5px;
+  width: 80%;
+}
+
+button {
+  padding: 8px 15px;
+  background: #ff4da6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e60073;
+}
