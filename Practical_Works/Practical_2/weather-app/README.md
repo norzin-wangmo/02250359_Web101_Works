@@ -1,70 +1,137 @@
-# Weather App Project
+# 🌦️ Weather App
 
-## 1. Project Overview
-This is a simple web-based Weather App that allows users to:
-- Get real-time weather information for any city using the OpenWeatherMap API (GET request).
-- Save locations to a list (POST request simulated via JSONPlaceholder API).
-- Edit saved locations (PUT request simulated).
-- Delete saved locations (DELETE request simulated).
+## 📌 Project Overview
+The Weather App is a simple web application that allows users to:
+- Fetch weather information using a city name
+- Save locations for future use
+- View, update, and delete saved locations
 
-The app uses HTML, CSS, and JavaScript with Fetch API to interact with the APIs.
-
----
-
-## 2. Objectives
-1. Learn how to fetch and display weather data from an API.
-2. Implement CRUD operations (Create, Read, Update, Delete) using Fetch API.
-3. Understand handling API responses and error messages.
-4. Create a simple, interactive web interface for user input and display.
+This project demonstrates CRUD operations (GET, POST, PUT, DELETE) and frontend interaction with APIs.
 
 ---
 
-## 3. Technologies Used
-- **HTML** – Structure and layout of the web page.
-- **CSS** – Styling for a clean, user-friendly interface.
-- **JavaScript** – Logic for API requests and DOM manipulation.
-- **Fetch API** – Handling GET, POST, PUT, DELETE requests.
-- **OpenWeatherMap API** – Provides real-time weather data.
-- **JSONPlaceholder API** – Simulates backend CRUD operations.
+## ⚙️ Technology Stack
+
+- **Framework:** Vanilla JavaScript
+- **State Management:** DOM Manipulation
+- **Styling:** Basic CSS
+- **Form Handling:** HTML Forms
+- **Data Fetching:** Fetch API
 
 ---
 
-## 4. Features
-1. **Get Weather**
-   - Enter a city name to fetch current temperature and weather description.
-   - Error messages displayed if city is not found or API fails.
+## 🚀 Setup Instructions
 
-2. **Save Location**
-   - Add a location to a list.
-   - Displays newly added locations immediately.
+1. Navigate to project folder
+```bash
+cd weather-app
+```
 
-3. **Edit Location**
-   - Update the name of a saved location.
-   - Changes reflect immediately in the UI.
-
-4. **Delete Location**
-   - Remove a saved location from the list.
-
-> **Note:** JSONPlaceholder API is a simulated backend. Changes are **not permanent** after page refresh. Local state updates are used to reflect edits immediately.
+2. Open the application  
+Open `index.html` in your browser
 
 ---
 
-## 5. How to Run
-1. Download or clone the project folder.
-2. Open `index.html` in a web browser.
-3. Add your OpenWeatherMap API key in `script.js`:
-const API_KEY = "YOUR_API_KEY_HERE"
-4. Test GET, POST, PUT, and DELETE features.
+## 📁 Application Structure
 
-## 6. Challenges Faced
-1. Initially, PUT requests didn’t persist because JSONPlaceholder is a fake API.
-2. Resolved by updating data locally in the browser.
-3. Needed to wait a few minutes for OpenWeatherMap API key to activate.
-4. Handling user input errors (empty city, invalid city names).
+```
+weather-app/
+│── index.html      # UI structure
+│── script.js       # Logic and API handling
+```
 
-## 7. Conclusion
-This project successfully demonstrates:
-1. Fetching real-time weather data.
-2. Implementing CRUD operations on the frontend.
-3. Managing UI updates in real-time.
-4. Integrating APIs in a web application.
+---
+
+## 📄 Pages / Routes
+
+- **index.html** → Main page that contains:
+  - Weather input section
+  - Save location section
+  - Saved locations list
+
+---
+
+## 🧩 Component Organization
+
+- UI is structured using HTML sections
+- JavaScript functions act as components:
+  - `getWeather()` → Handles weather fetching
+  - `saveLocation()` → Handles saving locations
+- Dynamic content is updated using DOM manipulation
+
+---
+
+## 🗂️ State Management
+
+- State is managed using JavaScript variables
+- Data is stored temporarily in memory
+- UI updates dynamically using DOM methods
+
+---
+
+## 🔑 Key Components
+
+### 1. Weather Input
+- **Purpose:** Get weather data from user input  
+- **Function:** Calls `getWeather()`  
+- **Data:** City name  
+
+---
+
+### 2. Save Location
+- **Purpose:** Store user-defined locations  
+- **Function:** Calls `saveLocation()`  
+- **Data:** Location name  
+
+---
+
+### 3. Location List
+- **Purpose:** Display saved locations  
+- **Function:** Dynamically updated list  
+- **Data:** Array of saved locations  
+
+---
+
+## 🔐 Authentication Flow
+
+No authentication is implemented in this project.
+
+---
+
+## 🔄 Features Implemented
+
+- 🌍 Fetch weather using city name  
+- 💾 Save locations  
+- 📋 Display saved locations  
+- ✏️ Update saved locations  
+- ❌ Delete saved locations  
+
+---
+
+## 🧠 Implementation Details
+
+- Used Vanilla JavaScript for simplicity
+- Used Fetch API for HTTP requests
+- Used DOM manipulation for UI updates
+- Structured application for easy understanding
+
+---
+
+## 📷 Screenshots
+
+```markdown
+![Screenshot 1](./assets/ss1.jpg)
+![Screenshot 2](./assets/ss2.jpg)
+```
+
+---
+
+## 👤 Author
+
+**Norzin Wangmo**
+
+---
+
+## 🔗 Repository Link
+
+https://github.com/norzin-wangmo/02250359_Web101_Works.git
