@@ -9,17 +9,25 @@ export default function VideoFeed() {
 
   useEffect(() => {
     const load = async () => {
-      const data = await getVideos();
-      setVideos(data);
+      try {
+        const data = await getVideos();
+        setVideos(data || []);
+      } catch (error) {
+        console.log("Backend not connected yet:", error);
+        setVideos([]);
+      }
     };
+
     load();
   }, []);
 
   return (
     <div>
-      {videos.map((v) => (
-        <VideoCard key={v.id} video={v} />
-      ))}
+      {videos.length === 0 ? (
+        <p>No videos yet. Check backend connection.</p>
+      ) : (
+        videos.map((v) => <VideoCard key={v.id} video={v} />)
+      )}
     </div>
   );
 }
