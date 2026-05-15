@@ -1,14 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
-import { getUserProfile, followUser, unfollowUser } from "../../../services/userService";
-import { getUserVideos } from "../../../services/videoService";
-import VideoCard from "../../../components/ui/VideoCard";
-import { useAuth } from "../../../contexts/authContext";
+import { getUserProfile, followUser, unfollowUser } from "@/services/userService";
+import { getUserVideos } from "@/services/videoService";
+import VideoCard from "@/components/ui/VideoCard";
+import { useAuth } from "@/contexts/authContext";
 
 export default function Profile({ params }) {
+  const { userId } = use(Promise.resolve(params));
   const [user, setUser] = useState(null);
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -16,7 +17,6 @@ export default function Profile({ params }) {
   const [isFollowing, setIsFollowing] = useState(false);
   const [actionLoading, setActionLoading] = useState(false);
   const { user: currentUser } = useAuth();
-  const { userId } = params;
 
   useEffect(() => {
     const loadProfile = async () => {
@@ -88,13 +88,10 @@ export default function Profile({ params }) {
 
   return (
     <div>
-      {/* Profile Header */}
       <div className="bg-white rounded-lg p-6 shadow mb-6">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-3xl font-bold mb-2">
-              {user.username || user.email}
-            </h1>
+            <h1 className="text-3xl font-bold mb-2">{user.username || user.email}</h1>
             <p className="text-gray-600 mb-4">{user.email}</p>
             {user.bio && <p className="text-gray-700 mb-4">{user.bio}</p>}
 
@@ -139,7 +136,6 @@ export default function Profile({ params }) {
         </div>
       </div>
 
-      {/* Videos Section */}
       <div>
         <h2 className="text-2xl font-bold mb-6">Videos</h2>
         {videos.length === 0 ? (

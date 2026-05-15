@@ -1,18 +1,16 @@
-"use client";
+import "./globals.css";
+import { Providers } from "./providers";
 
-import { useState } from "react";
-import AuthModal from "../components/auth/AuthModal";
+export const metadata = {
+  title: "TikTok Clone",
+  description: "A TikTok clone built with Next.js",
+};
 
 export default function RootLayout({ children }) {
-  const [open, setOpen] = useState(false);
-
   return (
-    <html>
+    <html lang="en">
       <body>
-        <button onClick={() => setOpen(true)}>Login</button>
-        <AuthModal isOpen={open} onClose={() => setOpen(false)} />
-
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

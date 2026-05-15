@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
-import { getUsers, followUser, unfollowUser } from "../../services/userService";
-import { useAuth } from "../../contexts/authContext";
+import { getUsers, followUser, unfollowUser } from "@/services/userService";
+import { useAuth } from "@/contexts/authContext";
 
 export default function ExploreUsers() {
   const [users, setUsers] = useState([]);
@@ -22,7 +22,6 @@ export default function ExploreUsers() {
         const data = await getUsers();
         setUsers(data || []);
 
-        // Initialize following map
         const followMap = {};
         data?.forEach((u) => {
           followMap[u.id] = u.isFollowing || false;
@@ -126,8 +125,8 @@ export default function ExploreUsers() {
                     {actionLoading[u.id]
                       ? "..."
                       : followingMap[u.id]
-                      ? "Following"
-                      : "Follow"}
+                        ? "Following"
+                        : "Follow"}
                   </button>
                 )}
               </div>

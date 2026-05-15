@@ -1,4 +1,4 @@
-**Course layout:** This app is **Practical 4 only** (`Practical_Works/Practical_4/tiktok-clone`). Practical 5 is a separate folder under `Practical_Works/Practical_5/`—keep different env files, `node_modules`, and submissions for each.
+**Course layout:** This app is **Practical 5 only** (`Practical_Works/Practical_5/tiktok-clone`). The Next.js App Router lives in the project-root **`app/`** folder (not `src/app`). The **Express API** with controllers lives next door: **`../tiktok-api`** (`src/controllers/userController.js`, `videoController.js`). Practical 4 is separate under `Practical_Works/Practical_4/`. Keep your own `.env.local` and `node_modules` per practical.
 
 ---
 

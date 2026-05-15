@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { uploadVideo } from "../../services/videoService";
-import { useAuth } from "../../contexts/authContext";
+import { uploadVideo } from "@/services/videoService";
+import { useAuth } from "@/contexts/authContext";
 import { useRouter } from "next/navigation";
 
 export default function Upload() {
@@ -88,7 +88,6 @@ export default function Upload() {
       <h1 className="text-3xl font-bold mb-6">Upload Video</h1>
 
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow">
-        {/* Video Preview */}
         {preview && (
           <div className="mb-6">
             <p className="text-sm font-semibold mb-2">Video Preview:</p>
@@ -100,11 +99,8 @@ export default function Upload() {
           </div>
         )}
 
-        {/* Video File Input */}
         <div className="mb-6">
-          <label className="block text-sm font-semibold mb-2">
-            Video File *
-          </label>
+          <label className="block text-sm font-semibold mb-2">Video File *</label>
           <input
             type="file"
             accept="video/*"
@@ -112,56 +108,37 @@ export default function Upload() {
             className="w-full border rounded px-3 py-2"
             required
           />
-          <p className="text-xs text-gray-500 mt-1">
-            Supported formats: MP4, WebM, Ogg
-          </p>
+          <p className="text-xs text-gray-500 mt-1">Supported formats: MP4, WebM, Ogg</p>
         </div>
 
-        {/* Caption */}
         <div className="mb-6">
-          <label className="block text-sm font-semibold mb-2">
-            Caption *
-          </label>
+          <label className="block text-sm font-semibold mb-2">Caption *</label>
           <input
             type="text"
             placeholder="Add a caption..."
             value={formData.caption}
-            onChange={(e) =>
-              setFormData({ ...formData, caption: e.target.value })
-            }
+            onChange={(e) => setFormData({ ...formData, caption: e.target.value })}
             className="w-full border rounded px-3 py-2"
             maxLength="150"
             required
           />
-          <p className="text-xs text-gray-500 mt-1">
-            {formData.caption.length}/150
-          </p>
+          <p className="text-xs text-gray-500 mt-1">{formData.caption.length}/150</p>
         </div>
 
-        {/* Description */}
         <div className="mb-6">
-          <label className="block text-sm font-semibold mb-2">
-            Description
-          </label>
+          <label className="block text-sm font-semibold mb-2">Description</label>
           <textarea
             placeholder="Add a description (optional)"
             value={formData.description}
-            onChange={(e) =>
-              setFormData({ ...formData, description: e.target.value })
-            }
+            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
             className="w-full border rounded px-3 py-2 h-24"
             maxLength="500"
           />
-          <p className="text-xs text-gray-500 mt-1">
-            {formData.description.length}/500
-          </p>
+          <p className="text-xs text-gray-500 mt-1">{formData.description.length}/500</p>
         </div>
 
-        {/* Thumbnail */}
         <div className="mb-6">
-          <label className="block text-sm font-semibold mb-2">
-            Thumbnail (optional)
-          </label>
+          <label className="block text-sm font-semibold mb-2">Thumbnail (optional)</label>
           <input
             type="file"
             accept="image/*"
@@ -170,7 +147,6 @@ export default function Upload() {
           />
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           disabled={loading}
