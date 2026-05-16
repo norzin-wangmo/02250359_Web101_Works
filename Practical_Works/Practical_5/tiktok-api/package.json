@@ -1,0 +1,25 @@
+{
+  "name": "practical-5-tiktok-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Practical 5 — Express API with cursor-based pagination",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "db:push": "prisma db push",
+    "db:generate": "prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.0",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "prisma": "^6.19.0"
+  }
+}

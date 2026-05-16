@@ -1,0 +1,157 @@
+.app {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #1a1a2e;
+}
+
+.subtitle {
+  margin: 0.5rem 0 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.todo-input {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.todo-input input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.todo-input input:focus {
+  border-color: #6366f1;
+}
+
+.todo-input button {
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: #6366f1;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.todo-input button:hover {
+  background: #4f46e5;
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  transition: box-shadow 0.2s;
+}
+
+.todo-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.todo-item label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  cursor: pointer;
+}
+
+.todo-item input[type='checkbox'] {
+  width: 1.125rem;
+  height: 1.125rem;
+  accent-color: #6366f1;
+  cursor: pointer;
+}
+
+.todo-item span {
+  font-size: 1rem;
+  color: #374151;
+}
+
+.todo-item.completed span {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.remove-btn {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: #9ca3af;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.remove-btn:hover {
+  color: #ef4444;
+  background: #fef2f2;
+}
+
+.clear-btn {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.625rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.clear-btn:hover {
+  color: #ef4444;
+  border-color: #fecaca;
+}
+
+.empty-message {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.95rem;
+  padding: 2rem 0;
+}
